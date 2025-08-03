@@ -1,0 +1,59 @@
+<!-- USER DASHBOARD (profile.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - ShopNow</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="LWA-Logo.png" alt="ShopNow Logo"></a>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <!-- Logout link removed from navbar -->
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Dashboard Content -->
+  <section class="profile-section">
+    <div class="profile-box">
+      <h2>Welcome, <span id="username">User</span>!</h2>
+      <p><strong>Email:</strong> <span id="useremail"></span></p>
+      <button onclick="logout()" class="btn">Logout</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ShopNow. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Redirect if not logged in
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn !== "true") {
+      window.location.href = "login.html";
+    }
+
+    // Display user info
+    document.getElementById("username").innerText = localStorage.getItem("userName") || "User";
+    document.getElementById("useremail").innerText = localStorage.getItem("userEmail") || "Unknown";
+
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      alert("You have been logged out.");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

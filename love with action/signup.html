@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - ShopNow</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="LWA-Logo.png" alt="ShopNow Logo"></a>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about.html">About Us</a></li>
+       
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sign-Up Form -->
+  <section class="login-section">
+    <div class="login-box">
+      <h2>Create Your Account</h2>
+      <form onsubmit="handleSignup(event)">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label for="signupEmail">Email:</label>
+          <input type="email" id="signupEmail" required />
+        </div>
+        <div class="form-group">
+          <label for="signupPassword">Password:</label>
+          <input type="password" id="signupPassword" required />
+        </div>
+        <button type="submit" class="btn">Create Account</button>
+        <p style="text-align:center; margin-top:1rem;">Already have an account? <a href="login.html">Login</a></p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ShopNow. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function handleSignup(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("signupEmail").value;
+      const password = document.getElementById("signupPassword").value;
+
+      // Store user info in localStorage (Demo only — not secure!)
+      localStorage.setItem("userEmail", email);
+      localStorage.setItem("userPassword", password);
+
+      alert("Account created! Please log in.");
+      window.location.href = "login.html"; // Redirect to login
+    }
+  </script>
+</body>
+</html>
